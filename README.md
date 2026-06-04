@@ -166,6 +166,28 @@ Options:
           Print help
   -V, --version
 ```
+11-12% -max savings - tested under 32-bit and 65-bit termux Android 9-11
 
+```
+rgo_jxl --distance 15 --keep-raw  --url-list <(echo https://elib.rgo.ru/handle/123456789/212035) --out rgo_dump --retry-failed  --effort tortoise --checkpoint-every 10             
+  crawling collection page https://elib.rgo.ru/handle/123456789/212035...
+    found item: https://elib.rgo.ru/handle/123456789/169263
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/169263
+    found item: https://elib.rgo.ru/handle/123456789/232811
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/232811
+    found item: https://elib.rgo.ru/handle/123456789/212039
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/212039
+    found item: https://elib.rgo.ru/handle/123456789/212036
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/212036
+    found item: https://elib.rgo.ru/handle/123456789/212038
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/212038
+Checkpoint loaded: downloaded=2482, queue=28167, seen=30649, failed=0, out=rgo_dump
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ0  1115x1484  303181B -> 38075B (13%)
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ1  1115x1484  311273B -> 36805B (12%)
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ2  1115x1484  309986B -> 35202B (11%)
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ3  1115x1484  329563B -> 39190B (12%)
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ4  1115x1484  321758B -> 36055B (11%)
+  saved elib.rgo.ru_safe-view_123456789_212021_1_MTAwMDA3OTJfS2hyaXN0aWFuaSwgR3JpZ29yaXkgR3JpZ29yYGV2aWNoICgxODYzLSkuIFZzZW9ic2gucGRmLzQ5  1115x1484  340916B -> 37307B (11%)
+```
 
 
