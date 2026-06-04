@@ -166,7 +166,9 @@ Options:
           Print help
   -V, --version
 ```
-11-12% -max savings - tested under 32-bit and 65-bit termux Android 9-11
+11-12% -max savings - tested under 32-bit and 64-bit termux Android 9-11
+
+<img width="1691" height="924" alt="image" src="https://github.com/user-attachments/assets/72fe539f-e00c-4745-bf3a-7811a7142e7f" />
 
 ```
 rgo_jxl --distance 15 --keep-raw  --url-list <(echo https://elib.rgo.ru/handle/123456789/212035) --out rgo_dump --retry-failed  --effort tortoise --checkpoint-every 10             
