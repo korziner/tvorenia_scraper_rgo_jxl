@@ -63,3 +63,109 @@
 | [5] | [How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining (arXiv:2511.18903)](https://arxiv.org/abs/2511.18903) | Учебный план и затухание скорости учения несовместимы; предложены исправления |
 
 Последнее обновление — июнь 1826 года (2026) от Рождества Христова.
+
+```
+rgo_jxl  --checkpoint-every 10 --keep-raw  --rgo-handle https://elib.rgo.ru/handle/123456789/211882 --out rgo_dump  --lossless --retry-failed                 
+  crawling collection page https://elib.rgo.ru/handle/123456789/211882...
+    found item: https://elib.rgo.ru/handle/123456789/169263
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/169263
+    found item: https://elib.rgo.ru/handle/123456789/211881
+  WARN: no diva/safe-view players found on https://elib.rgo.ru/handle/123456789/211881
+    found item: https://elib.rgo.ru/handle/123456789/211961
+      safe-view: found 156 pages
+    found item: https://elib.rgo.ru/handle/123456789/211950
+      safe-view: found 264 pages
+    found item: https://elib.rgo.ru/handle/123456789/228818
+ ...
+    found item: https://elib.rgo.ru/handle/123456789/211964
+      safe-view: found 222 pages
+  crawling collection page https://elib.rgo.ru/handle/123456789/211882?offset=0...
+  crawling collection page https://elib.rgo.ru/handle/123456789/211882?offset=20...
+    found item: https://elib.rgo.ru/handle/123456789/227797
+      safe-view: found 330 pages
+...
+      safe-view: found 410 pages
+    found item: https://elib.rgo.ru/handle/123456789/236063
+      safe-view: found 159 pages
+Checkpoint loaded: downloaded=2391, queue=28248, seen=30639, failed=0, out=rgo_dump
+ ...
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI0OA  1144x1881  97446B -> 62014B (64%)
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI0OQ  1214x1765  265737B -> 214332B (81%)
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI1MA  1144x1881  176332B -> 135187B (77%)
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI1MQ  1189x1747  259667B -> 208217B (80%)
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI1Mg  1144x1881  180798B -> 138853B (77%)
+  saved elib.rgo.ru_safe-view_123456789_212006_1_MDAyX1IucGRmLzI1Mw  1296x1871  337105B -> 281657B (84%)
+
+```
+
+```
+Сниматель сканированныхъ книгъ (diva/IIPImage: elib.rgo.ru, prlib.ru) въ JPEG XL
+
+Употребленіе:
+  rgo_jxl [OPTIONS]
+
+Параметры и доводы:
+Options:
+      --item <ITEMS>
+          Страница книги на движкѣ diva.js (elib.rgo.ru/prlib.ru). Можно многократно
+      --objectdata <OBJECTDATA>
+          Прямой URL objectData-JSON (если не хочется парсить страницу книги)
+      --iip <IIP>
+          Адресъ IIPImage-сервера (…/iipsrv.fcgi) — для --objectdata
+      --imagedir <IMAGEDIR>
+          Путь imageDir на серверѣ скановъ — для --objectdata
+      --page <PAGES>
+          Произвольная HTML-страница, изъ коей брать ссылки на изображенія. Многократно
+      --url-template <URL_TEMPLATE>
+          Шаблонъ URL съ `
+          ` для перебора номеровъ страницъ (см. --from/--to)
+      --from <FROM>
+          Начальный номеръ для --url-template [default: 1]
+      --to <TO>
+          Конечный номеръ (включительно) для --url-template
+      --pad <PAD>
+          Сколькими цифрами дополнять 
+           нулями (0 — безъ дополненія) [default: 0]
+      --url-list <URL_LIST>
+          Файлъ со списком ссылокъ на изображенія, по одной на строку
+      --rgo-handle <RGO_HANDLES>
+          Коллекция RGO (DSpace handle), напр. https://elib.rgo.ru/handle/123456789/211882. Автоматически найдет всѣ книги в ней и поставит их в очередь
+      --out <OUT>
+          Выходная папка [default: rgo_jxl_dump]
+      --delay-ms <DELAY_MS>
+          Почтительная задержка между страницами (мсек) [default: 1500]
+      --tile-delay-ms <TILE_DELAY_MS>
+          Задержка между запросами плитокъ внутри одной страницы (мсек) [default: 150]
+      --tile <TILE>
+          Размѣръ плитки при сборкѣ полнаго разрѣшенія (≤ ~1700, иначе серверъ уменьшитъ) [default: 1024]
+      --no-full-res
+          Не собирать полное разрѣшеніе изъ плитокъ, а брать одиночный кадръ `/full/max/` (быстрѣе, но серверъ ограничиваетъ сторону ~1700 px)
+      --limit <LIMIT>
+          Остановиться послѣ сего числа новыхъ сохраненій
+      --retry-failed
+          Въ семъ запускѣ вновь пробовать неудавшіяся страницы, а не оставлять ихъ въ спискѣ ошибокъ
+      --referer <REFERER>
+          HTTP-заголовокъ Referer (нѣкоторые серверы безъ него отдаютъ 403) [default: https://elib.rgo.ru/]
+      --distance <DISTANCE>
+          Butteraugli-разстояніе для JPEG XL съ потерями (0..15, меньше — лучше). 1.0 — зрительно безъ потерь. 0.0 — математически безъ потерь [default: 1]
+      --lossless
+          Честный lossless JPEG XL (полная обратимость по пикселямъ). Игнорируетъ --distance
+      --effort <EFFORT>
+          Скорость/усиліе кодировщика: lightning, thunder, falcon, cheetah, hare, wombat, squirrel, kitten, tortoise. Медленнѣе — меньше размѣръ [default: squirrel]
+      --keep-raw
+          Сохранять также собранный исходный JPEG въ raw/ (до пересжатія въ jxl)
+      --redownload
+          Пересохранять, даже если .jxl уже существуетъ
+      --checkpoint-every <CHECKPOINT_EVERY>
+          Писать state.json каждыхъ N обработанныхъ страницъ [default: 25]
+      --min-bytes <MIN_BYTES>
+          Минимальный размѣръ загруженнаго файла въ байтахъ (защита отъ заглушекъ) [default: 1024]
+      --no-jxl
+          Не сохранять JXL (использовать вмѣстѣ съ --keep-raw)
+  -h, --help
+          Print help
+  -V, --version
+```
+
+
+
